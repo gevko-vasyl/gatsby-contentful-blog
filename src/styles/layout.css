@@ -590,6 +590,123 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+.header {
+  padding: 0px 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo {
+  width: 100px;
+
+  background: #000;
+  border-radius: 500px;
+  border: 4px solid gray;
+}
+
+.banner {
+  width: 200px;
+  height: 100px;
+}
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 150px;
+}
+.contacts {
+  width: 170px;
+}
+.add-info {
+  width: 400px;
+  font-size: 12px;
+}
+.list-image {
+  width: 300px;
+  margin-top: 20px;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 60px;
+  list-style: none;
+}
+
+.post {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  height: 500px;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.excerpt {
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  text-decoration: underline;
+}
+.post-title {
+  font-size: 26px;
+}
+.post-title:hover a {
+  color: gray;
+}
+.hero-title {
+  text-align: center;
+  margin-top: 30px;
+  color: #000;
+}
+.readmore-button {
+  text-decoration: underline;
+}
+.readmore-button:hover a {
+  color: gray;
+}
+.publish-date {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.blog-title {
+  margin-top: 40px;
+}
+
+.blog-image {
+  margin-top: 50px;
+}
+.blog-text {
+  margin-top: 40px;
+}
+.about-title {
+  margin-top: 60px;
+  text-align: center;
+}
+.about-image {
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 800px;
+}
+.about-subtitle {
+  text-align: center;
+  margin-top: 50px;
+}
+.about-text {
+  margin-top: 40px;
+  font-size: 24px;
+  height: auto;
+}
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

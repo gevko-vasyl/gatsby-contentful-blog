@@ -1,42 +1,62 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
+const Header = () => {
+  const { contentfulMenu, contentfulHeader, contentfulLogo } =
+    useStaticQuery(graphql`
+      query {
+        contentfulMenu {
+          homePage
+          secondPage
+        }
+        contentfulHeader {
+          bgcolor
+          banner {
+            title
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+        contentfulLogo {
+          logo {
+            title
+            fluid(maxWidth: 90) {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+      }
+    `)
+
+  return (
+    <header
       style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        backgroundColor: contentfulHeader.bgcolor,
       }}
+      className="header"
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+      <Img
+        className="logo"
+        style={{
+          backgroundColor: contentfulHeader.bgcolor,
+        }}
+        backgroundColor={contentfulHeader.bgcolor}
+        fluid={contentfulLogo.logo.fluid}
+        alt={contentfulLogo.logo.title}
+      />
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+      <Link to="/">{contentfulMenu.homePage}</Link>
+      <Link to="/about/">{contentfulMenu.secondPage}</Link>
 
-Header.defaultProps = {
-  siteTitle: ``,
+      <Img
+        className="banner"
+        fluid={contentfulHeader.banner.fluid}
+        alt={contentfulHeader.banner.title}
+      />
+    </header>
+  )
 }
 
 export default Header
